@@ -280,7 +280,7 @@
             </td>
             <td colspan="6">
               <div>
-                <b>Folio No.: <span id="folio"></span></b><br />
+                <b>Folio: <span id="folio"></span></b><br />
                 <b>Fecha: <span id="fecha"></span></b><br />
                 <b>Cajero: <span id="cajero"></span></b><br />
                 <b>Vendedor: <span id="vendedor"></span></b>
@@ -407,20 +407,16 @@
         if (descriptions.length > 0 && descriptions[0] !== "") {
             for (var i = 0; i < descriptions.length; i++) {
               var row = productList.insertRow();
-              row.insertCell(0).textContent = quantitys[i] || '0';
-              row.cells[0].className = 'cantidad-producto';
-
-              row.insertCell(1).textContent = descriptions[i] || 'N/A';
-              row.cells[1].className = 'descripcion-producto';
-              
-              row.insertCell(2).textContent = formatCurrency(prices[i] || '0');
-              // row.cells[2].className = 'Price'; // Ya se alinea a la derecha por defecto en tbody td
-
+              row.insertCell(0).textContent = codigo[i] || 'N/A';
+              row.cells[0].className = 'descripcion-producto';
+              row.insertCell(1).textContent = quantitys[i] || '0';
+              row.cells[1].className = 'cantidad-producto';
+              row.insertCell(2).textContent = descriptions[i] || 'N/A';
+              row.cells[2].className = 'descripcion-producto';
+              row.insertCell(3).textContent = formatCurrency(prices[i] || '0');
+              row.cells[3].className = 'Price'; // Ya se alinea a la derecha por defecto en tbody td
               row.insertCell(4).textContent = formatCurrency(amounts[i] || '0');
-              // row.cells[4].className = 'Amount';
-
-              row.insertCell(5).textContent = codigo[i] || 'N/A';
-              row.cells[5].className = 'descripcion-producto';
+              row.cells[4].className = 'Amount';
             }
         }
 
