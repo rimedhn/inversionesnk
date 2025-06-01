@@ -392,11 +392,7 @@
         setTextContent("folio", getQueryParam("factura"));
         setTextContent("fecha", getQueryParam("date"));
         setTextContent("cajero", getQueryParam("cajero"));
-        
-        // Datos exonerado y condiciones de pago
         setTextContent("observacion", getQueryParam("observacion"));
-
-        // Totales
         setTextContent("total", getQueryParam("total"), true);
 
         // Poblar tabla de productos
@@ -419,14 +415,8 @@
               
               row.insertCell(2).textContent = formatCurrency(prices[i] || '0');
               // row.cells[2].className = 'Price'; // Ya se alinea a la derecha por defecto en tbody td
-              
-              row.insertCell(3).textContent = formatCurrency(subtproductos[i] || '0');
-              // row.cells[3].className = 'SubtProducto';
 
-              row.insertCell(4).textContent = formatCurrency(isvproductos[i] || '0');
-              // row.cells[4].className = 'IsvProducto';
-
-              row.insertCell(5).textContent = formatCurrency(amounts[i] || '0');
+              row.insertCell(4).textContent = formatCurrency(amounts[i] || '0');
               // row.cells[5].className = 'Amount';
             }
         }
