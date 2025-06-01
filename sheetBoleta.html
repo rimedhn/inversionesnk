@@ -396,7 +396,7 @@
         setTextContent("total", getQueryParam("total"), true);
 
         // Poblar tabla de productos
-        var subtproductos = getQueryParam("codigo") ? getQueryParam("codigo").split(",") : [];
+        var codigo = getQueryParam("codigo") ? getQueryParam("codigo").split(",") : [];
         var quantitys = getQueryParam("quantitys") ? getQueryParam("quantitys").split(",") : [];
         var descriptions = getQueryParam("descriptions") ? getQueryParam("descriptions").split(",") : [];
         var prices = getQueryParam("price") ? getQueryParam("price").split(",") : [];
@@ -417,7 +417,10 @@
               // row.cells[2].className = 'Price'; // Ya se alinea a la derecha por defecto en tbody td
 
               row.insertCell(4).textContent = formatCurrency(amounts[i] || '0');
-              // row.cells[5].className = 'Amount';
+              // row.cells[4].className = 'Amount';
+
+              row.insertCell(5).textContent = codigo[i] || 'N/A';
+              row.cells[5].className = 'descripcion-producto';
             }
         }
 
