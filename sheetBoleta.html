@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CREDISER - FACTURA</title>
-    <link rel="icon" href="https://github.com/rimedhn/elysium/blob/main/WhatsApp%20Image%202024-08-20%20at%203.20.41%20PM.jpeg?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://github.com/rimedhn/inversionesnk/blob/main/Logo%20corto%20InvNK.png?raw=true" type="image/x-icon">
     <style type="text/css">
       body {
         margin: 0;
@@ -245,7 +245,7 @@
       <table id="tabla-encabezado" class="sin-bordes">
         <tr>
           <td class="logo-container">
-            <img src="https://github.com/rimedhn/elysium/blob/main/WhatsApp%20Image%202024-08-20%20at%203.20.41%20PM.jpeg?raw=true" alt="Logo Elysium Droguerìa" class="mi-imagen" onerror="this.style.display='none'"/>
+            <img src="https://github.com/rimedhn/inversionesnk/blob/main/Logo%20corto%20InvNK.png?raw=true" alt="Logo Elysium Droguerìa" class="mi-imagen" onerror="this.style.display='none'"/>
           </td>
           <td class="empresa-info-container">
             <b id="empresa"></b>
@@ -260,12 +260,12 @@
         <thead>
           <tr>
             <th colspan="12">
-              <h2 id="tipodoc-header">FACTURA</h2>
+              <h2 id="tipodoc-header">BOLETA DE PEDIDO</h2>
             </th>
           </tr>
           <tr>
             <th colspan="6" style="width: 50%;">Datos del Cliente</th>
-            <th colspan="6" style="width: 50%;">Datos de la Factura</th>
+            <th colspan="6" style="width: 50%;">Datos del pedido</th>
           </tr>
         </thead>
         <tbody>
@@ -276,17 +276,14 @@
                 <b>RTN: <span id="rtncliente"></span></b><br />
                 <b>Teléfono: <span id="telefonocliente"></span></b><br />
                 <b>Dirección: <span id="direccioncliente"></span></b><br />
-                <b>Vendedor: <span id="vendedor"></span></b>
               </div>
             </td>
             <td colspan="6">
               <div>
-                <b>Factura No.: <span id="factura"></span></b><br />
-                <b>Fecha: <span id="date"></span></b><br />
-                <b>CAI: <span id="cai"></span></b><br />
-                <b>Rango Autorizado: <span id="rango"></span></b><br />
-                <b>Fecha Límite Emisión: <span id="limite"></span></b><br />
+                <b>Folio No.: <span id="folio"></span></b><br />
+                <b>Fecha: <span id="fecha"></span></b><br />
                 <b>Cajero: <span id="cajero"></span></b>
+                <b>Vendedor: <span id="vendedor"></span></b>
               </div>
             </td>
           </tr>
@@ -296,15 +293,14 @@
       <table id="tabla-productos">
         <thead>
           <tr>
-            <td colspan="6" style="text-align:center; font-weight:bold; background-color: #e9e9e9;">Detalle de Productos/Servicios</td>
+            <td colspan="6" style="text-align:center; font-weight:bold; background-color: #e9e9e9;">Detalle de los Productos</td>
           </tr>
           <tr>
-            <th style="width: 10%;"><h2>Cant</h2></th>
-            <th style="width: 35%;"><h2>Descripción</h2></th>
-            <th style="width: 15%;"><h2>Precio U.</h2></th>
-            <th style="width: 15%;"><h2>Subtotal</h2></th>
-            <th style="width: 10%;"><h2>ISV</h2></th>
-            <th style="width: 15%;"><h2>Monto</h2></th>
+            <th style="width: 15%;"><h2>Codigo</h2></th>
+            <th style="width: 10%;"><h2>Cantidad</h2></th>
+            <th style="width: 40%;"><h2>Descripcion</h2></th>
+            <th style="width: 15%;"><h2>Precio</h2></th>
+            <th style="width: 20%;"><h2>Monto</h2></th>
           </tr>
         </thead>
         <tbody id="productList">
@@ -314,40 +310,13 @@
       <table id="tabla-totales-observaciones">
         <tr>
           <td colspan="3" class="info-adicional" style="width: 50%;">
-            <b>Datos del Cliente Exonerado:</b><br />
-            Orden de Compra Exenta: <b id="ocexe"></b><br />
-            No. Registro Exonerado: <b id="ocexo"></b><br />
-            No. Registro SAG: <b id="nosag"></b>
-            <hr />
-            <b>Condiciones de Pago:</b><br />
-            Forma de Pago: <b id="formapago"></b><br />
-            Plazo en días: <b id="plazo"></b><br />
-            Cantidad de Pagos: <b id="pagos"></b><br />
-            Cuota por Pago: <b>L <span id="cuota"></span></b>
-            <hr />
             Observaciones:<br />
             <span id="observacion" style="display:block; min-height: 30px; word-wrap:break-word; white-space:normal;"></span>
           </td>
           <td colspan="1" class="etiquetas-totales" style="width: 30%;">
-            Subtotal:<br />
-            Descuentos y Rebajas:<br />
-            Valor Exento:<br />
-            Valor Exonerado:<br />
-            Gravado con 15%:<br />
-            Gravado con 18%:<br />
-            ISV 15%:<br />
-            ISV 18%:<br />
             <b>Total Venta:</b>
           </td>
           <td colspan="2" class="valores-totales" style="width: 20%;">
-            L <span id="subtotal"></span><br />
-            L <span id="descuento"></span><br />
-            L <span id="subtotalexe"></span><br />
-            L <span id="subtotalexo"></span><br />
-            L <span id="subtotalisv15"></span><br />
-            L <span id="subtotalisv18"></span><br />
-            L <span id="isv15"></span><br />
-            L <span id="isv18"></span><br />
             <b>L <span id="total"></span></b>
           </td>
         </tr>
