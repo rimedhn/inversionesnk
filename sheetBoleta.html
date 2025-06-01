@@ -389,40 +389,21 @@
         setTextContent("telefonocliente", getQueryParam("telefonocliente"));
         setTextContent("direccioncliente", getQueryParam("direccioncliente"));
         setTextContent("vendedor", getQueryParam("vendedor"));
-        setTextContent("factura", getQueryParam("factura"));
-        setTextContent("date", getQueryParam("date"));
-        setTextContent("cai", getQueryParam("cai"));
-        setTextContent("rango", getQueryParam("rango"));
-        setTextContent("limite", getQueryParam("limite"));
+        setTextContent("folio", getQueryParam("factura"));
+        setTextContent("fecha", getQueryParam("date"));
         setTextContent("cajero", getQueryParam("cajero"));
         
         // Datos exonerado y condiciones de pago
-        setTextContent("ocexe", getQueryParam("ocexe"));
-        setTextContent("ocexo", getQueryParam("ocexo"));
-        setTextContent("nosag", getQueryParam("nosag"));
-        setTextContent("formapago", getQueryParam("formapago"));
-        setTextContent("plazo", getQueryParam("plazo"));
-        setTextContent("pagos", getQueryParam("pagos"));
-        setTextContent("cuota", getQueryParam("cuota"), true);
         setTextContent("observacion", getQueryParam("observacion"));
 
         // Totales
-        setTextContent("subtotal", getQueryParam("subtotal"), true);
-        setTextContent("descuento", getQueryParam("descuento"), true);
-        setTextContent("subtotalexe", getQueryParam("subtotalexe"), true);
-        setTextContent("subtotalexo", getQueryParam("subtotalexo"), true);
-        setTextContent("subtotalisv15", getQueryParam("subtotalisv15"), true);
-        setTextContent("subtotalisv18", getQueryParam("subtotalisv18"), true);
-        setTextContent("isv15", getQueryParam("isv15"), true);
-        setTextContent("isv18", getQueryParam("isv18"), true);
         setTextContent("total", getQueryParam("total"), true);
 
         // Poblar tabla de productos
-        var descriptions = getQueryParam("descriptions") ? getQueryParam("descriptions").split(",") : [];
+        var subtproductos = getQueryParam("codigo") ? getQueryParam("codigo").split(",") : [];
         var quantitys = getQueryParam("quantitys") ? getQueryParam("quantitys").split(",") : [];
+        var descriptions = getQueryParam("descriptions") ? getQueryParam("descriptions").split(",") : [];
         var prices = getQueryParam("price") ? getQueryParam("price").split(",") : [];
-        var subtproductos = getQueryParam("subtproducto") ? getQueryParam("subtproducto").split(",") : [];
-        var isvproductos = getQueryParam("isvproducto") ? getQueryParam("isvproducto").split(",") : [];
         var amounts = getQueryParam("amounts") ? getQueryParam("amounts").split(",") : [];
 
         var productList = document.getElementById("productList");
