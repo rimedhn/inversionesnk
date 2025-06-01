@@ -22,45 +22,47 @@
         background-color: #fff; /* Fondo blanco para el ticket */
         font-size: 10px; /* Tamaño de fuente base */
       }
+      
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
 
-      /* Estilos específicos para la impresión */
-      @media print {
-        body {
-          /* Reiniciar márgenes para impresión */
-          margin: 0;
-          padding: 0;
-          -webkit-print-color-adjust: exact; /* Para asegurar que los colores de fondo se impriman */
-          color-adjust: exact;
-        }
+    #letter-size {
+        /* Elimina la altura fija para permitir que el contenido fluya a nuevas páginas */
+        /* height: 11in; <--- ELIMINAR O COMENTAR ESTA LÍNEA */
+        min-height: 11in; /* Opcional: si quieres asegurar una altura mínima inicial */
 
-        #letter-size {
-          /* Tamaño de una hoja carta real en pulgadas */
-          width: 8.5in; /* 215.9mm */
-          height: 11in; /* 279.4mm */
-          margin: 0; /* Eliminar márgenes en impresión */
-          padding: 0.5in; /* Puedes ajustar este padding para los márgenes de impresión del contenido */
-          box-sizing: border-box; /* Asegura que el padding no añada al ancho/alto total */
-          font-size: 10px; /* Asegura el tamaño de fuente para impresión */
-          overflow: hidden; /* Evita barras de desplazamiento dentro de la página impresa */
-        }
-        /* Ocultar elementos no deseados en la impresión si los hubiera, por ejemplo: */
-        /* .no-print { display: none; } */
+        width: 8.5in; /* 215.9mm */
+        margin: 0;
+        padding: 0.5in; /* Ajustar padding para los márgenes de impresión del contenido */
+        box-sizing: border-box;
+        font-size: 10px;
+        /* Elimina overflow: hidden; para permitir que el contenido se extienda a nuevas páginas */
+        /* overflow: hidden; <--- ELIMINAR O COMENTAR ESTA LÍNEA */
+    }
 
-        /* Ajustes adicionales para elementos internos si es necesario */
-        table {
-          page-break-inside: auto; /* Evita que las tablas se corten a la mitad */
-        }
-        tr {
-          page-break-inside: avoid;
-          page-break-after: auto;
-        }
-        thead {
-          display: table-header-group; /* Repite los encabezados de tabla en cada nueva página */
-        }
-        tfoot {
-          display: table-footer-group; /* Repite los pies de tabla en cada nueva página */
-        }
-      }
+    /* Ocultar elementos no deseados en la impresión si los hubiera, por ejemplo: */
+    /* .no-print { display: none; } */
+
+    /* Ajustes adicionales para elementos internos si es necesario */
+    table {
+        page-break-inside: auto; /* Permite que las tablas se corten si es necesario para el flujo */
+    }
+    tr {
+        page-break-inside: avoid; /* Evita que las filas individuales se corten a la mitad */
+        page-break-after: auto;
+    }
+    thead {
+        display: table-header-group; /* Repite los encabezados de tabla en cada nueva página */
+    }
+    tfoot {
+        display: table-footer-group; /* Repite los pies de tabla en cada nueva página */
+    }
+}
 
       /* Los estilos que ya tenías para el resto de los elementos (tablas, th, td, etc.) */
       /* ... (tu código CSS existente aquí) ... */
