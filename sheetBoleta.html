@@ -283,7 +283,8 @@
                 <b>Folio: <span id="folio"></span></b><br />
                 <b>Fecha: <span id="fecha"></span></b><br />
                 <b>Cajero: <span id="cajero"></span></b><br />
-                <b>Vendedor: <span id="vendedor"></span></b>
+                <b>Vendedor: <span id="vendedor"></span></b><br />
+                <b>Vendedor: <span id="formaPago"></span></b>
               </div>
             </td>
           </tr>
@@ -389,11 +390,12 @@
         setTextContent("telefonocliente", getQueryParam("telefonocliente"));
         setTextContent("direccioncliente", getQueryParam("direccioncliente"));
         setTextContent("vendedor", getQueryParam("vendedor"));
-        setTextContent("folio", getQueryParam("factura"));
-        setTextContent("fecha", getQueryParam("date"));
+        setTextContent("folio", getQueryParam("folio"));
+        setTextContent("fecha", getQueryParam("fecha"));
         setTextContent("cajero", getQueryParam("cajero"));
         setTextContent("observacion", getQueryParam("observacion"));
         setTextContent("total", getQueryParam("total"), true);
+        setTextContent("formaPago", getQueryParam("formaPago"), true);
 
         // Poblar tabla de productos
         var codigo = getQueryParam("codigo") ? getQueryParam("codigo").split(",") : [];
