@@ -408,7 +408,7 @@
         setTextContent("fecha", getQueryParam("fecha"));
         setTextContent("observacion", getQueryParam("observacion"));
         setTextContent("total", getQueryParam("total"), true);
-        setTextContent("formaPago", getQueryParam("formaPago"), true);
+        setTextContent("formaPago", getQueryParam("formaPago"));
 
         // Poblar tabla de productos
         var codigo = getQueryParam("codigo") ? getQueryParam("codigo").split(",") : [];
