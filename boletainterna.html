@@ -9,16 +9,16 @@
       body {
         margin: 0;
         padding: 0;
-        background-color: #f0f0f0; /* Color de fondo para la página, ayuda a visualizar el ticket */
+        background-color: #f0f0f0;
       }
       #letter-size {
-        width: 5.5in; /* Ancho de media carta aproximadamente */
-        min-height: 7in; /* Altura mínima, puede crecer con el contenido */
-        margin: 0.2in auto; /* Margen superior/inferior y centrado horizontal */
+        width: 5.5in;
+        min-height: 7in;
+        margin: 0.2in auto;
         padding: 10px;
         font-family: Arial, sans-serif;
-        background-color: #fff; /* Fondo blanco para el ticket */
-        font-size: 10px; /* Tamaño de fuente base */
+        background-color: #fff;
+        font-size: 10px;
       }
       @media print {
         body {
@@ -46,13 +46,11 @@
         thead { display: table-header-group; }
         tfoot { display: table-footer-group; }
       }
-      .label {
-        text-align: center; font-size: 18px; margin-bottom: 10px;
-      }
+      .label { text-align: center; font-size: 18px; margin-bottom: 10px; }
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 15px; /* Espacio entre tablas */
+        margin-bottom: 15px;
       }
       table th,
       table td {
@@ -61,9 +59,7 @@
         text-align: left;
         vertical-align: top;
       }
-      .sin-bordes, .sin-bordes th, .sin-bordes td {
-        border: none !important;
-      }
+      .sin-bordes, .sin-bordes th, .sin-bordes td { border: none !important; }
       #tabla-encabezado .logo-container { width: 20%; text-align: center; vertical-align: middle; }
       #tabla-encabezado .empresa-info-container { width: 80%; vertical-align: middle; }
       #tabla-encabezado .empresa-info-container b, #tabla-encabezado .empresa-info-container span { font-size: 10px; }
@@ -76,13 +72,7 @@
         max-width: 98%;
         vertical-align: top;
       }
-      #tabla-cliente-factura th {
-        text-align: center;
-        font-weight: bold;
-        background-color: #e9e9e9;
-        font-size: 11px;
-        padding: 8px;
-      }
+      #tabla-cliente-factura th { text-align: center; font-weight: bold; background-color: #e9e9e9; font-size: 11px; padding: 8px; }
       #tabla-cliente-factura td > div { padding: 5px; }
       #tabla-cliente-factura td { word-break: break-word; }
       #tabla-productos thead th {
@@ -92,34 +82,12 @@
         font-size: 10px;
         padding: 7px;
       }
-      #tabla-productos tbody td {
-        font-size: 10px;
-        text-align: right;
-      }
-      #tabla-productos tbody td.descripcion-producto {
-        text-align: left;
-        word-wrap: break-word;
-        white-space: normal;
-      }
-      #tabla-productos tbody td.cantidad-producto {
-        text-align: center;
-      }
-      #tabla-productos h2 {
-        font-size: 10px;
-        text-align: center;
-        line-height: 1.2;
-        margin: 0;
-        font-weight: bold;
-      }
-      #tabla-totales-observaciones .info-adicional {
-        font-size: 9.5px;
-        vertical-align: top;
-      }
-      #tabla-totales-observaciones .info-adicional hr {
-        border: none;
-        border-top: 1px dashed #888;
-        margin: 6px 0;
-      }
+      #tabla-productos tbody td { font-size: 10px; text-align: right; }
+      #tabla-productos tbody td.descripcion-producto { text-align: left; word-wrap: break-word; white-space: normal; }
+      #tabla-productos tbody td.cantidad-producto { text-align: center; }
+      #tabla-productos h2 { font-size: 10px; text-align: center; line-height: 1.2; margin: 0; font-weight: bold; }
+      #tabla-totales-observaciones .info-adicional { font-size: 9.5px; vertical-align: top; }
+      #tabla-totales-observaciones .info-adicional hr { border: none; border-top: 1px dashed #888; margin: 6px 0; }
       #tabla-totales-observaciones .etiquetas-totales { text-align: right; font-weight: normal; }
       #tabla-totales-observaciones .valores-totales { text-align: right; }
       #tabla-totales-observaciones .etiquetas-totales b, #tabla-totales-observaciones .valores-totales b { font-weight: bold; }
@@ -268,10 +236,28 @@
         if (isNaN(val)) return "0.00";
         return val.toLocaleString('es-HN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
       }
+
       function getQueryParam(param) {
         var urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param) || "";
       }
+
+      // Formatea la fecha ISO a dd/mm/aaaa hh:mm:ss
+      function formatFecha(fechaIso) {
+        if (!fechaIso) return "";
+        const d = new Date(fechaIso);
+        if (isNaN(d.getTime())) return fechaIso;
+        const pad = n => (n < 10 ? "0" : "") + n;
+        return (
+          pad(d.getDate()) + "/" +
+          pad(d.getMonth()+1) + "/" +
+          d.getFullYear() + " " +
+          pad(d.getHours()) + ":" +
+          pad(d.getMinutes()) + ":" +
+          pad(d.getSeconds())
+        );
+      }
+
       // Número a letras (robusto, español)
       function numeroALetras(monto) {
         if (isNaN(monto)) return "CERO LEMPIRAS";
@@ -358,7 +344,7 @@
         document.getElementById("direccioncliente").textContent = v["DireccionCliente"] || v["Direccion"] || "";
         document.getElementById("vendedor").textContent = v["NombreVendedor"] || "";
         document.getElementById("folio").textContent = v["No Venta"] || v["Factura"] || "";
-        document.getElementById("fecha").textContent = v["Fecha hora"] || "";
+        document.getElementById("fecha").textContent = formatFecha(v["Fecha hora"] || "");
         document.getElementById("formaPago").textContent = v["Forma de pago"] || "";
         document.getElementById("observacion").textContent = v["Observacion"] || "";
 
