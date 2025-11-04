@@ -353,7 +353,7 @@
         const productList = document.getElementById("productList");
         productList.innerHTML = "";
         productos.forEach(function(p) {
-          let codigo = p["Codigo"] || p["codigo"] || "";
+          let codigo = p["Producto"] || p["producto"] || "";
           let cantidad = parseFloat(p["Cantidad"]) || 0;
           let descripcion = p["Descripcion"] || p["Producto"] || "";
           let precio = parseFloat(p["Precio"]) || 0;
